@@ -1,0 +1,27 @@
+﻿<form name="addNew" class="add-new-panel" enctype="multipart/form-data" method="post" data-bind="visible: !isContactsHidden(), submit: addContact ">
+    <div class="input-panel">
+        <h2>Add new contact</h2>
+        <div>
+            <!--Avatar-->
+            <a class="input-photo">
+                <img class="block" id="avatar-new" width="50" height="50" data-default-image="/Images/Default/unknown.jpg" data-bind="image: newContact().avatar" />
+            </a>
+            <input type="hidden" name="Avatar" data-bind="value: newContact().avatar" />
+            <input type="file" name="AvatarFile" accept="image/*" data-bind="imageInput: newContact().avatar, inputButton : '.input-photo', targetImg: 'avatar-new'" />
+            <input type="text" name="FirstName" placeholder="First name" required data-bind="value: newContact().first_name" />
+            <input type="text" name="LastName" placeholder="Last name" required data-bind="value: newContact().last_name" />
+            <input type="text" name="CompanyName" placeholder="Company name" required data-bind="value: newContact().company_name" />
+            <input type="text" name="JobTitle" placeholder="Job title" required data-bind="value: newContact().job_title" />
+            <input type="email" name="Email" placeholder="Email" required data-bind="value: newContact().email" />
+            <input type="text" name="Phone" placeholder="Phone" reqired data-bind="value: newContact().phone" />
+            <select name="Gender" required data-bind="value: newContact().gender_name">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+    </div>
+    <div class="button-panel">
+        <button class="back" type="reset" data-bind="click: addContactPanelSwitcher"><i class="fa fa-arrow-left fa-lg"></i></button>
+        <button class="send" type="submit"><i class="fa fa-upload fa-lg"></i></button>
+    </div>
+</form>

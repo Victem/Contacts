@@ -1,0 +1,20 @@
+﻿@using Contacts.Domain
+
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+<section class="container">
+    @{ Html.RenderPartial("ContactsPanelPartial"); }
+        
+    @{ Html.RenderPartial("AddContactPartial"); }
+
+    @{ Html.RenderPartial("EditContactPartial"); }
+
+
+    
+
+</section>
+
+

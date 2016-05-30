@@ -1,0 +1,370 @@
+﻿/*General*/
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height:100%;
+    width:100%;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+h2 {
+    margin: 0;
+}
+
+.container {
+    width:320px;
+    height:600px;   
+    margin-left: auto;
+    margin-right: auto;    
+    vertical-align:top;
+    -webkit-box-shadow: 0 0 5px 2px #BDBDBD;
+    box-shadow: 0 0 5px 2px #BDBDBD;
+    padding: 0;
+    margin-top: 10px;
+    position:relative;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 5px 10px;
+    width: 100%;
+    border: none;    
+    font-size: 15px;
+    -webkit-box-shadow: 0 1px 1px 0 #BDBDBD;
+    box-shadow: 0 1px 1px 0 #BDBDBD;
+}
+
+input[type="text"]:focus {
+    font-style: normal;
+}
+
+[placeholder] {
+    font-style: italic;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    display:inline-block;    
+    width: 50px;
+    height: 50px;   
+    padding: 5px;    
+    border-radius: 50%;       
+}
+
+/*End General*/
+
+/*Contacts panel*/
+.contacts-panel {
+    
+    
+}
+
+.scroll-panel {
+    overflow-y: scroll;
+    overflow-x:hidden;
+    height: 510px;
+}
+
+
+
+
+.contact {
+    padding: 5px 5px;
+    cursor: pointer;
+    position: relative;   
+    -webkit-box-shadow: 0 1px 1px 0 #BDBDBD;
+    box-shadow: 0 1px 1px 0 #BDBDBD;
+}
+
+
+.contacts-panel  ul > li {
+    display: block;
+    position: relative;
+    height:100px;
+}
+
+
+
+img {
+    border: 1px solid #158b4e;
+    border-radius: 50%;      
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    
+}
+
+img.block {
+    display: block;
+}
+
+img.inline {
+    display: inline-block;
+}
+
+.contact-info {
+    vertical-align: top;
+    width: 235px;
+    display: inline-block;
+   
+}
+
+.gender {
+    color: #808080;
+    font-style: italic;
+    padding: 0 5px;
+    display: inline-block;
+}
+
+h4.name {
+    color: #158b4e;
+    padding: 2px;
+    margin: 0;
+    display: inline-block;
+
+}
+
+p {
+    padding: 0 2px;
+    margin: 0;
+}
+
+.job-title {
+    font-style: italic;
+    font-weight: 600;
+    color: #808080;
+    font-size: 13px;
+
+}
+
+.company-name {
+    font-style: italic;
+    font-weight: 100;
+    color: #808080;
+    font-size: 13px;
+}
+
+.phone,
+.email {
+    font-size: 12px;
+    color: #353433;
+    padding: 1px 0 1px 45px;
+    font-weight: 600;
+}
+
+.contacts-panel ul > li {
+    display: block;
+}
+
+.contact-options {
+    position:absolute;
+    top:20%;
+    right: 10px;
+    font-size: 15px;
+    line-height: normal;
+    background: none;
+    border: none; 
+    cursor: pointer;
+}
+
+.contact-options:hover {
+    color: #0299ca;
+}
+
+
+.contact-actions {
+    position:absolute;
+    top: 0;
+    height:100%;
+    width:100%;
+    background: rgba(64, 1, 86, 0.68);    
+    display: block;
+}
+
+.contact-actions > button {    
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;   
+    position:absolute;
+    top: 25px;   
+}
+
+button.delete {
+    left:30%      
+}
+
+button.delete:hover {
+    border: 1px solid #b50000;
+    background: rgba(254, 254, 254, 0.61);
+    color: #b50000;    
+}
+
+button.edit {   
+    right:25%     
+}
+
+button.edit:hover {
+    border: 1px solid #158b4e;
+    color: #158b4e;
+    background: rgba(254, 254, 254, 0.61);
+}
+
+.no-results-panel {
+    font-size: 20px;
+    color: #808080;
+    font-style:italic;
+    font-weight:300;
+    text-align:center;
+    padding-top: 200px;
+    height: 510px;
+}
+
+
+
+/*End Contacts panel*/
+
+
+/*Button panel*/
+.button-panel {
+    height: 60px;    
+    line-height: 60px;
+    padding: 0 20px;
+    position: relative;
+}
+
+button.add {
+    display:block;
+    background: #ffffff;    
+    color: #0299ca;
+    border: 1px solid  #0299ca;    
+    margin: 5px auto 0 auto;
+    
+}
+
+button.add:hover {
+    background: #0299ca;
+    color:#ffffff;
+    border: 1px solid  #ffffff;
+}
+
+/*End Buton panel*/
+
+/*Add-new panel*/
+.add-new-panel {
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    top:0;
+    
+}
+
+.input-panel {
+    height: 540px;
+    padding:20px;
+}
+
+.add-new-panel  h2 {
+    color: #158b4e;    
+    font-weight: 100;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 0 15px 0;
+}
+
+form  input[type="file"] {
+    display:none;
+}
+
+.input-photo{
+    height: 50px;
+    width: 50px;
+    display: block;
+    border-radius: 50%;
+    background-position:center;
+    background-size: 38px;
+    position: relative;
+    margin: 0 auto 15px auto;
+}
+
+.input-photo:hover::before {
+    content: "+";
+    height: 50px;
+    width: 50px;
+    display: block;
+    border-radius: 50%;
+    font-size: 50px;
+    text-align:center;
+    line-height: 50px;
+    font-weight:500;
+    color:  rgba(235, 235, 235, 0.64);
+    position:absolute;
+    cursor: pointer;
+}
+
+form  input[type="text"],
+form  input[type="email"],
+form  select {
+    padding:10px;
+    margin-top: 5px;
+    border: 1px solid #dddddd;
+     -webkit-box-shadow:none;
+    box-shadow: none;
+    width:100%;
+}
+
+select {
+    max-height: 41px;
+}
+
+
+select  option {
+    padding: 0 5px 5px 5px;
+}
+
+
+button.back {
+    display: inline-block;
+    background: #ffffff;   
+    border: 1px solid  #0299ca;    
+    color: #0299ca;   
+    margin: 0 auto 0 0; 
+}
+
+button.back:hover {
+    background: #0299ca;
+    color:#ffffff;
+    border: 1px solid  #ffffff;
+}
+
+button.send {
+    display: inline-block;
+    background: #ffffff;   
+    border: 1px solid  #158b4e;
+    padding: 5px;
+    color: #158b4e;  
+    position: absolute;
+    top: 5px;
+    left: 135px;   
+}
+
+button.send:hover {
+    background: #158b4e;
+    color:#ffffff;
+    border: 1px solid  #ffffff;
+}
+
+/*End Add-new panel*/

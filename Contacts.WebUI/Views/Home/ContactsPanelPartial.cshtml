@@ -1,0 +1,44 @@
+﻿<div class="contacts-panel" data-bind="visible: isContactsHidden()">
+    <input type="text" name="search" placeholder="Search" data-bind="event: {input: search}" />
+
+    <div class="no-results-panel" data-bind="visible: contacts().length == 0">
+        No results...
+    </div>
+    <div class="scroll-panel" data-bind="visible: contacts().length > 0">
+        <ul data-bind="foreach: contacts">
+            <li>
+                <div class="contact">
+                    <img class="inline" data-default-image="/Images/Default/unknown.jpg" data-bind="image: avatar" />
+                    <a class="contact-options" data-bind="click: showContactOptions">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="contact-info">
+                        <h4 class="name" data-bind="text: fullName"></h4>
+                        <span class="gender">
+                            <i class="fa fa-mars" data-bind="visible: gender() === 'Male'"></i>
+                            <i class="fa fa-venus" data-bind="visible: gender() === 'Female'"></i>
+                        </span>
+                        <p class="job-title" data-bind="text: job_title"></p>
+                        <p class="company-name" data-bind="text: company_name"></p>
+                        <p class="phone"><i class="fa fa-mobile fa-lg"></i> <span data-bind="text: phone"></span></p>
+                        <p class="email"><i class="fa fa-envelope-o"></i> <span data-bind="text: email"></span></p>
+                    </div>
+                </div>
+                <div class="contact-actions" data-bind="visible: showOptions()">
+                    <a class="contact-options" style="color: #ffffff;" data-bind="click: showContactOptions">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <button class="delete" data-bind="click: deleteContact">
+                        <i class="fa fa-trash-o fa-lg"></i>
+                    </button>
+                    <button class="edit" data-bind="click: showContactEditPanel">
+                        <i class="fa fa-pencil fa-lg"></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="button-panel">
+        <button class="add" data-bind="click: addContactPanelSwitcher"><i class="fa fa-plus fa-lg"></i></button>
+    </div>
+</div>
