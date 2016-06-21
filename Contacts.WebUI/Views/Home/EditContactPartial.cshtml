@@ -1,4 +1,4 @@
-﻿<form name="editContact" class="add-new-panel" enctype="multipart/form-data" method="put" data-bind="visible: isEditContactHidden(), submit: updateContact ">
+﻿<form name="editContact" class="add-new-panel" method="put" data-bind="visible: isEditContactHidden(), submit: updateContact ">
     <div class="input-panel">
         <h2>Edit contact</h2>
         <div>
@@ -23,6 +23,6 @@
     </div>
     <div class="button-panel">
         <button class="back" type="reset" data-bind="click: hideContactEditPanel"><i class="fa fa-arrow-left fa-lg"></i></button>
-        <button class="send" type="submit" data-bind="click: hideContactEditPanel"><i class="fa fa-upload fa-lg"></i></button>
+        <button class="send" type="submit"><i class="fa fa-upload fa-lg"></i></button>
     </div>
 </form>

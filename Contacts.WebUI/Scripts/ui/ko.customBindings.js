@@ -27,7 +27,7 @@
 
             var img = document.getElementById(allBindings.get('targetImg'));            
             var value = valueAccessor();
-            var valueUnwrapped = ko.unwrap(value);            
+            console.log(value());
             var form = element.form;
             var inputFileButton = form.querySelector(allBindings.get('inputButton'));
 
@@ -45,10 +45,10 @@
                 var file = e.target.files[0];
                 var fileReader = new FileReader();
                 fileReader.addEventListener("load", function (image) {
-                    return function (e) {
-                        
-                        if (img.src !== img.dataset["defaultImage"])
+                    return function (e) {                        
+                        if (img.src !== img.dataset["defaultImage"])                            
                             value(e.target.result);
+                            
                         }                
 
                 }(img));

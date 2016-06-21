@@ -15,9 +15,9 @@
 		this.fullName = ko.computed(function () {
 			return this.first_name() + " " + this.last_name();
 		}, this);
-		
 
-		var self = this;
+
+        var self = this;
 		
 		self.showOptions = ko.observable(false);
 		
@@ -25,7 +25,7 @@
 
 
     function ContactsListViewModel() {		
-		
+        var self = this;
         var contactToAdd = new Contact({});
         var contactToEdit = new Contact({});
         self.contacts = ko.observableArray([]);
@@ -33,7 +33,10 @@
         self.isEditContactHidden=ko.observable(false)
         self.newContact = ko.observable(contactToAdd);
         self.editContact = ko.observable(contactToEdit);
-		self.lastContact = ko.observable();
+        self.lastContact = ko.observable();
+
+        
+
 		loadData("");	
 
 
@@ -105,7 +108,7 @@
 		    
 
 		    $.ajax({
-		        url: "/api/contacts",
+		        url: "/api/contacts/",
 		        type: "post",
 		        data: $(form).serialize(),
 		        success: function (response) {
@@ -121,13 +124,17 @@
 		}
 
 		self.updateContact = function () {
-
+		    
 		    var form = document.forms["editContact"];
 		    self.editContact().avatar = form["Avatar"].value;
 		    $.ajax({
 		        url: "/api/contacts/" + self.editContact().id(),
 		        type: "put",
-		        data: $(form).serialize()
+		        data: $(form).serialize(),
+		        success: function (responce) {
+		            self.hideContactEditPanel();		            
+
+		        }
 		        
 		    });
 
