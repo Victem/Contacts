@@ -86,7 +86,7 @@ namespace Contacts.WebUI.Controllers
 
         [ResponseType(typeof(Contact))]
         public IHttpActionResult PostContact(Contact contact)
-        {
+        {           
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
