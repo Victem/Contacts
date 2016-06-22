@@ -26,9 +26,8 @@
         update: function (element, valueAccessor, allBindings) {
 
             var img = document.getElementById(allBindings.get('targetImg'));            
-            var value = valueAccessor();
-            console.log(value());
-            var form = element.form;
+            var value = valueAccessor();            
+            var form = element.form;            
             var inputFileButton = form.querySelector(allBindings.get('inputButton'));
 
             inputFileButton.addEventListener("click", function (e) {
@@ -41,18 +40,19 @@
 
 
             element.addEventListener("change", function (e) {
-
-                var file = e.target.files[0];
+                
+                var file = e.target.files[0];               
                 var fileReader = new FileReader();
+
                 fileReader.addEventListener("load", function (image) {
                     return function (e) {                        
                         if (img.src !== img.dataset["defaultImage"])                            
-                            value(e.target.result);
-                            
+                            value(e.target.result);                            
                         }                
 
                 }(img));
                 fileReader.readAsDataURL(file);
+                e.preventDefault();
 
             });
         }        

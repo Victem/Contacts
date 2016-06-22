@@ -35,6 +35,7 @@ namespace Contacts.WebUI
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-3.4.0.js",
+                "~/Scripts/sammy-0.7.5.min.js",
                 "~/Scripts/ui/ko.customBindings.js",
                 "~/Scripts/ui/contactsList.js"));
           

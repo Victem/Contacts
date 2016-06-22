@@ -28,37 +28,15 @@
         var self = this;
         var contactToAdd = new Contact({});
         var contactToEdit = new Contact({});
-        self.contacts = ko.observableArray([]);
-        self.isContactsHidden = ko.observable(true);
-        self.isEditContactHidden=ko.observable(false)
+        self.contacts = ko.observableArray([]);        
         self.newContact = ko.observable(contactToAdd);
         self.editContact = ko.observable(contactToEdit);
         self.lastContact = ko.observable();
 
         
 
-		loadData("");	
-
-
-		self.addContactPanelSwitcher = function () {			
-		    self.isContactsHidden(!self.isContactsHidden());
-		}
-
-
-		self.showContactEditPanel = function (contact) {
-            
-		    self.isEditContactHidden(!self.isEditContactHidden());
-		    self.showContactOptions(contact);
-		    contactToAdd = contact;
-
-		    self.editContact(contact);
-		    
-		}
-
-
-		self.hideContactEditPanel = function () {
-		    self.isEditContactHidden(!self.isEditContactHidden());
-		}
+		loadData("");
+		
 
 		self.showContactOptions = function (contact) {
             
@@ -91,22 +69,21 @@
 			loadData(search);
 		}
 
-		self.deleteContact = function (contact) {		   
+		self.deleteContact = function (contact) {
+		    console.log(contact);
 		    $.ajax({
 		        url: "api/contacts/"+ contact.id(),
 		        type: "delete",		        
 		        success: function (response) {
-		            self.contacts.remove(contact);
+		            self.contacts.remove(contact);		            
 		        }
 		    });		    
 		}
 
 
 		self.addContact = function () {
+
 		    var form = document.forms["addNew"];
-
-		    
-
 		    $.ajax({
 		        url: "/api/contacts/",
 		        type: "post",
@@ -119,8 +96,6 @@
 		            self.newContact(contactToAdd);
 		        }
 		    });
-
-
 		}
 
 		self.updateContact = function () {
@@ -132,7 +107,7 @@
 		        type: "put",
 		        data: $(form).serialize(),
 		        success: function (responce) {
-		            self.hideContactEditPanel();		            
+		            self.goToAction("Contacts");		            
 
 		        }
 		        
@@ -152,7 +127,38 @@
 				self.contacts(mappedContacts);
 
 			});
-		}	
+		}
+
+		self.actions = ["Contacts", "Add", "Edit"];
+		self.chosenAction = ko.observable();
+
+		self.goToAction = function (action) {		    
+		    location.hash = action;
+		};
+
+		self.goToContact = function (contact) {
+		    contact.action = "Edit";
+		    self.editContact(contact);
+		    self.showContactOptions(contact);
+		    location.hash = contact.action + "/" + contact.id();
+
+		};
+
+        Sammy(function () {
+            this.get("#:action", function () {
+                self.chosenAction(this.params.action);
+            });
+
+            this.get("#:action/:contactID", function () {
+                self.chosenAction(this.params.action);
+               
+            });
+
+            this.get("", function () {
+                this.app.runRoute("get", "#Contacts");
+            });
+
+		}).run();
 	}
 	
 
